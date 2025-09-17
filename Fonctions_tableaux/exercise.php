@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+require '../function.php';
 
 $articles = [
   [
@@ -50,5 +51,20 @@ $summary = array_reduce(
   ['count'=>0, 'views_sum'=>0, 'by_category'=>[]]
 );
 
-print_r($normalized);
-print_r($summary);
+// dd($normalized);
+// dd($summary);
+// 1: Keep only published===true via array_filter.
+
+$published = array($articles, fn($array) => $array['published'] === true?  $array : NULL);
+// dd($published);
+
+// sorting an array by views.
+// extract the views from $articles.
+$views = array_column($articles, 'views');
+
+echo 'Array before sorting' . '<br>';
+dd($articles);
+
+echo 'Array after sorting' . '<br>';
+array_multisort($views, SORT_ASC, $articles);
+dd($articles);
