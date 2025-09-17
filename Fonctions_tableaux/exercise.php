@@ -51,8 +51,7 @@ $summary = array_reduce(
   ['count'=>0, 'views_sum'=>0, 'by_category'=>[]]
 );
 
-// dd($normalized);
-// dd($summary);
+
 // 1: Keep only published===true via array_filter.
 
 $published = array($articles, fn($array) => $array['published'] === true?  $array : NULL);
