@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Intro Laravel",
+        "excerpt": "Learn Laravel basics",
+        "views": 120,
+        "published": true,
+        "author": "Amina"
+    },
+    {
+        "id": 2,
+        "title": "PHP 8 en pratique",
+        "excerpt": "PHP 8 features",
+        "views": 300,
+        "published": true,
+        "author": "Yassine"
+    },
+    {
+        "id": 3,
+        "title": "Draft Article",
+        "excerpt": "Unfinished draft",
+        "views": 90,
+        "published": false,
+        "author": "Sara"
+    }
+]

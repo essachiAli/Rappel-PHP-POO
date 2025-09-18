@@ -1,0 +1,25 @@
+
+
+Test: Verifies reading CSV from a file at `storage\seeds\articles.csv`, parsing required columns (`title`, `excerpt`, `views`, `published`, `author`), standardizing fields (generating `id`, converting `views` to integer, `published` to boolean, trimming strings, applying defaults like `title` to "Untitled", `excerpt` to "", `author` to "Unknown"), and outputting pretty-printed JSON to STDOUT. This ensures the script handles file input correctly, processes the CSV as expected, and produces standardized JSON without errors, meeting the core requirement of CSV-to-JSON conversion.  
+Command: `php bin\seed_generator.php --input=storage\seeds\articles.csv`
+
+Test: Tests the `--limit=2` option to restrict output to the first two rows after standardization, outputting JSON to STDOUT. This confirms the script parses all rows, standardizes fields (e.g., `views` as int, `published` as bool), applies the limit correctly, and outputs only the specified number of JSON objects, ensuring the optional `--limit` parameter functions as required while maintaining data integrity.  
+Command: `php bin\seed_generator.php --input=storage\seeds\articles.csv --limit=2`
+
+Test: Confirms the `--published-only` option filters rows where `published` is true (converted to boolean from CSV `1`/`0`), outputting JSON to STDOUT. This verifies the script processes the CSV, standardizes data, excludes unpublished rows (e.g., "Draft Article" with `published=0`), and outputs the filtered JSON array, fulfilling the requirement for selective row output based on the `published` status.  
+Command: `php bin\seed_generator.php --input=storage\seeds\articles.csv --published-only`
+
+Test: Validates reading CSV from STDIN using `--input=-` via piped input, ensuring the same parsing and JSON output as file input. This test confirms the script handles piped CSV data (using `type` on Windows), parses it identically to file input, standardizes fields, and outputs JSON to STDOUT, meeting the requirement for supporting both file and STDIN input methods.  
+Command: `type storage\seeds\articles.csv | php bin\seed_generator.php --input=-`
+
+Test: Ensures JSON output to STDOUT can be redirected to a file, creating or overwriting `storage\seeds\output.json`. This verifies that the script’s standardized JSON output is valid and can be saved to a file via redirection, fulfilling the requirement for redirection support while preserving the existing `articles.seed.json` by using a different output path.  
+Command: `php bin\seed_generator.php --input=storage\seeds\articles.csv > storage\seeds\output.json`
+
+Test: Tests error handling for a missing file, outputting an error to STDERR and exiting with a non-zero exit code (3). This confirms the script detects a non-existent file (`nonexistent.csv`), outputs a clear error message ("Error: File not found: nonexistent.csv") to STDERR, and exits with `EXIT_DATA_ERROR`, meeting the requirement for robust error handling with non-zero exit codes.  
+Command: `php bin\seed_generator.php --input=nonexistent.csv`
+
+Test: Verifies the `--help` option displays usage information to STDOUT and exits with code 0. This ensures the `usage()` function shows details on options (`--input`, `--published-only`, `--limit`, `--help`) and examples, exiting with `EXIT_OK`, fulfilling the requirement for a user-friendly help feature without errors.  
+Command: `php bin\seed_generator.php --help`
+
+Test: Ensures validation of required CSV headers, outputting an error to STDERR with a non-zero exit code (3) for a missing `excerpt` header. This test requires creating `storage\seeds\invalid.csv` with headers `title,views,published,author` and verifies the script checks for all required columns (`title`, `excerpt`, `views`, `published`, `author`), outputs "Error: Missing required header: excerpt" to STDERR, and exits with `EXIT_DATA_ERROR`, confirming robust error handling for invalid CSV formats.  
+Command: `php bin\seed_generator.php --input=storage\seeds\invalid.csv`
