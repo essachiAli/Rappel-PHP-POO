@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Interfaces & traits en PHP",
+        "slug": "interfaces-traits-en-php",
+        "tags": [
+            "php",
+            "poo"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Organiser avec namespaces & PSR-4",
+        "slug": "organiser-avec-namespaces-psr-4",
+        "tags": [
+            "php",
+            "autoload"
+        ]
+    }
+]
