@@ -5,7 +5,7 @@ namespace App\Infrastructure;
 
 use App\Domain\Article;
 use App\Domain\Contracts\ArticleRepositoryInterface;
-use DomainException;  // Add this import
+use DomainException;
 use RuntimeException;
 
 final class JsonArticleRepository implements ArticleRepositoryInterface
