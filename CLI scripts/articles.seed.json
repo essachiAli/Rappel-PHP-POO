@@ -1,0 +1,6 @@
+[
+  {"id":1,"title":"Intro Laravel","views":120,"published":true,"author":"Amina"},
+  {"id":2,"title":"PHP 8 en pratique","views":300,"published":true,"author":"Yassine"},
+  {"id":3,"title":"Composer & Autoload","views":90,"published":false,"author":"Amina"},
+  {"id":4,"title":"Validation FormRequest","views":210,"published":true,"author":"Sara"}
+]
