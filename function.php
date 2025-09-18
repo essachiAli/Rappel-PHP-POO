@@ -2,6 +2,6 @@
 
 function dd($value){
     echo '<pre>';
-    var_dump($value);
+    print_r($value);
     echo '</pre>';
 }
