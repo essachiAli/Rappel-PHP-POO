@@ -39,7 +39,7 @@ class Article
         $this->title = $title;
         $this->slug = static::slugify($title);
     }
-
+    
     // Step 3: New function for JSON export
     public function toArray(): array
     {
