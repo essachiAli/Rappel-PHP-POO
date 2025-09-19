@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Article Dynamique #1",
+        "slug": "article-dynamique-1",
+        "excerpt": "Extrait pour l'article #1.",
+        "tags": [
+            "dynamic",
+            "php"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Article Dynamique #2",
+        "slug": "article-dynamique-2",
+        "excerpt": "Extrait pour l'article #2.",
+        "tags": [
+            "dynamic",
+            "php"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Article Dynamique #3",
+        "slug": "article-dynamique-3",
+        "excerpt": "Extrait pour l'article #3.",
+        "tags": [
+            "dynamic",
+            "php"
+        ]
+    }
+]
